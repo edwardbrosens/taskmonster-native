@@ -9,7 +9,7 @@ const compileNodeModules = [
   'react-native-vector-icons',
 ].map(moduleName => path.resolve(appDirectory, `node_modules/${moduleName}`));
 const babelLoaderConfiguration = {
-  test: /\\.([jt])sx?$/,
+  test: /\.(js|jsx|ts|tsx)$/,
   exclude: /node_modules\/(?!react-native-web\/|react-native|react-native-vector-icons)/,
   use: {
     loader: 'babel-loader',
@@ -21,7 +21,7 @@ const babelLoaderConfiguration = {
   },
 };
 const svgLoaderConfiguration = {
-  test: /\\.svg$/,
+  test: /\.svg$/,
   use: [
     {
       loader: '@svgr/webpack',
@@ -29,7 +29,7 @@ const svgLoaderConfiguration = {
   ],
 };
 const imageLoaderConfiguration = {
-  test: /\\.(gif|jpe?g|png)$/,
+  test: /\.(gif|jpe?g|png)$/,
   use: {
     loader: 'url-loader',
     options: {
